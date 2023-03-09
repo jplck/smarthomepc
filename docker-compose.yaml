@@ -28,7 +28,7 @@ services:
       - MEM_LIMIT=1024 #optional
       - MEM_STARTUP=1024 #optional
     volumes:
-      - unify-controller-data:/config
+      - ./data/unify-controller:/config
     ports:
       - 8443:8443
       - 3478:3478/udp
@@ -49,9 +49,6 @@ services:
     networks:
       - node-red-net
     volumes:
-      - node-red-data:/data
+      - ./data/node-red:/data
 networks:
   node-red-net:
-volumes:
-  unify-controller-data:
-  node-red-data:
