@@ -10,7 +10,6 @@ services:
       - 1883:1883
       - 9001:9001
   ntp:
-    build: .
     image: cturra/ntp:latest
     container_name: ntp
     restart: always
