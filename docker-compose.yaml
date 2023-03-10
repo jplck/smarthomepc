@@ -41,7 +41,7 @@ services:
       - 5514:5514/udp #optional
     restart: unless-stopped
   node-red:
-    image: nodered/node-red:2.2.3-12
+    image: nodered/node-red:3.0.2-18
     environment:
       - TZ=Europe/Amsterdam
     ports:
