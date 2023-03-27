@@ -67,5 +67,6 @@ services:
       - node-red-net
     volumes:
       - ./data/node-red:/data
+    restart: always
 networks:
   node-red-net:
