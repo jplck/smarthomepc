@@ -97,7 +97,7 @@ services:
       - '3000:3000'
     volumes:
       - ./data/grafana-storage:/var/lib/grafana
-      - ./grafana-provisioning/:/etc/grafana/provisioning
+      - ./grafana-config/:/etc/grafana/provisioning
     depends_on:
       - influxdb
     environment:
