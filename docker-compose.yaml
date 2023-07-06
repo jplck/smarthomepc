@@ -1,16 +1,5 @@
 version: "3.9"
 services:
-  node-red:
-    image: nodered/node-red:latest
-    environment:
-      - TZ=Europe/Berlin
-    networks:
-      - node-red-net
-    ports:
-      - "1880:1880"
-    volumes:
-      - ./data/node-red:/data
-    restart: always
   db:
     image: mysql:8.0.32
     restart: always
