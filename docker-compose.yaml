@@ -1,22 +1,13 @@
 version: "3.9"
 services:
-  db:
-    image: mysql:8.0.32
-    restart: always
-    environment:
-      MYSQL_DATABASE: 'smarthomedata'
-      # So you don't have to use root, but you can if you like
-      MYSQL_USER: 'admin'
-      # You can use whatever password you like
-      MYSQL_PASSWORD: 'admin'
-      # Password for root access
-      MYSQL_ROOT_PASSWORD: 'admin'
-    ports:
-      - '3306:3306'
-    expose:
-      - '3306'
+  homeassistant:
+    container_name: home-assistant
+    image: homeassistant/home-assistant
     volumes:
-      - ./data/mysql:/var/lib/mysql
+      - ./data/homeassistant/config:/config
+      - /etc/localtime:/etc/localtime:ro
+    restart: unless-stopped
+    network_mode: host
   pihole:
     container_name: pihole
     image: pihole/pihole:latest
@@ -86,5 +77,3 @@ services:
     environment:
       - GF_SECURITY_ADMIN_USER=admin
       - GF_SECURITY_ADMIN_PASSWORD=admin
-networks:
-  node-red-net:
